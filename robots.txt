@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /.git/
+Disallow: /.env
+Disallow: /node_modules/
+
+Sitemap: https://massbuilder.pro/sitemap.xml

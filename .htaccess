@@ -1,0 +1,112 @@
+# ═══════════════════════════════════════════════════════════
+# MassBuilder PRO — Configuration Serveur Sécurisée
+# Compatible : Apache 2.4+
+# ═══════════════════════════════════════════════════════════
+
+# ── Encodage ──────────────────────────────────────────────
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .json .xml .svg
+
+# ── Content-Security-Policy ───────────────────────────────
+<IfModule mod_headers.c>
+
+  # CSP stricte — aucun inline script, aucune source externe non autorisée
+  Header always set Content-Security-Policy "\
+    default-src 'self'; \
+    script-src 'self'; \
+    style-src 'self' https://fonts.googleapis.com; \
+    font-src 'self' https://fonts.gstatic.com; \
+    img-src 'self' data: https:; \
+    connect-src 'self'; \
+    frame-ancestors 'none'; \
+    base-uri 'self'; \
+    form-action 'self'; \
+    upgrade-insecure-requests;"
+
+  # Anti-sniffing MIME
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Anti-clickjacking
+  Header always set X-Frame-Options "DENY"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+
+  # XSS Protection (legacy browsers)
+  Header always set X-XSS-Protection "1; mode=block"
+
+  # Referrer Policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # HSTS — HTTPS only (activer une fois HTTPS configuré)
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  # Cache assets statiques
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=2592000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  <FilesMatch "\.(woff2|woff|ttf|otf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Supprimer headers qui divulguent infos serveur
+  Header unset Server
+  Header unset X-Powered-By
+</IfModule>
+
+# ── Compression GZIP ──────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript
+  AddOutputFilterByType DEFLATE application/json text/xml image/svg+xml
+  AddOutputFilterByType DEFLATE font/woff2 font/woff
+</IfModule>
+
+# ── MIME Types ────────────────────────────────────────────
+<IfModule mod_mime.c>
+  AddType text/html                .html
+  AddType text/css                 .css
+  AddType application/javascript   .js
+  AddType application/json         .json
+  AddType image/svg+xml            .svg
+  AddType font/woff2               .woff2
+  AddType font/woff                .woff
+</IfModule>
+
+# ── Redirection HTTPS ─────────────────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS (décommenter en production avec SSL)
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Redirection www → non-www (adapter selon config)
+  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  # RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+  # Trailing slash removal
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+  # Pretty URLs (pour future extension multi-pages)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ── Protection fichiers sensibles ─────────────────────────
+<FilesMatch "(\.htaccess|\.htpasswd|\.git|package\.json|\.env)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# ── Options sécurité répertoire ───────────────────────────
+Options -Indexes -ExecCGI
+ServerSignature Off
+
+# ── Erreurs personnalisées ────────────────────────────────
+ErrorDocument 404 /index.html
+ErrorDocument 403 /index.html

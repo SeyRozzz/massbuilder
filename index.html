@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══ SEO ═══ -->
+  <title>MassBuilder PRO — Calculateur Scientifique de Prise de Masse Musculaire</title>
+  <meta name="description" content="Calculateur avancé de prise de masse musculaire : calories personnalisées, besoins protéiques, dosage whey et projection réaliste. Basé sur Mifflin-St Jeor, Harris-Benedict et Katch-McArdle.">
+  <meta name="keywords" content="calculateur prise de masse, besoins caloriques musculation, calculateur protéines whey, programme prise de masse personnalisé, TDEE musculation, lean bulk calculateur">
+  <meta name="author" content="MassBuilder PRO">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://massbuilder.pro/">
+
+  <!-- ═══ Open Graph ═══ -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MassBuilder PRO — Calculateur Scientifique de Prise de Masse">
+  <meta property="og:description" content="Calcule tes besoins caloriques exacts, protéines optimales et projection musculaire réaliste en 2 minutes.">
+  <meta property="og:url" content="https://massbuilder.pro/">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- ═══ Sécurité ═══ -->
+  <!-- Content-Security-Policy côté serveur recommandé :
+       default-src 'self';
+       style-src 'self' https://fonts.googleapis.com;
+       font-src 'self' https://fonts.gstatic.com;
+       script-src 'self';
+       img-src 'self' data:;
+       frame-ancestors 'none';
+       base-uri 'self';
+  -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- ═══ Theme ═══ -->
+  <meta name="theme-color" content="#0a0a0b">
+  <meta name="color-scheme" content="dark">
+
+  <!-- ═══ Performance ═══ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+  <!-- ═══ Fonts ═══ -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
+  <!-- ═══ Styles (ordre important) ═══ -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- ═══ JSON-LD Structured Data ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "MassBuilder PRO",
+    "description": "Calculateur scientifique de prise de masse musculaire",
+    "url": "https://massbuilder.pro/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+<!-- ═══ MESH GRADIENT BACKGROUND ════════════════════════════ -->
+<div class="mesh-bg" aria-hidden="true"></div>
+
+<!-- ═══ SITE WRAPPER ════════════════════════════════════════ -->
+<div class="site-wrapper">
+
+  <!-- ── HEADER ── -->
+  <header class="site-header" role="banner">
+    <a href="/" class="logo" aria-label="MassBuilder PRO - Accueil">
+      <span class="logo-word">Mass</span><span class="logo-accent">Builder</span>
+      <span class="logo-word">PRO</span>
+      <span class="logo-tag" aria-hidden="true">Moteur Scientifique</span>
+    </a>
+    <div class="header-right">
+      <div class="header-badge" role="status" aria-label="Système opérationnel">
+        <div class="badge-dot" aria-hidden="true"></div>
+        Algorithme actif
+      </div>
+    </div>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-eyebrow" aria-label="Triple modèle algorithmique">
+      <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M6 3v3l2 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Triple modèle algorithmique · Précision ±8%
+    </div>
+
+    <h1 class="hero-title" id="hero-title">
+      Ton plan de prise de masse<br>
+      <span class="highlight">calculé à la kcal près</span>
+    </h1>
+
+    <p class="hero-sub">
+      Besoins caloriques, stratégie personnalisée, dosage protéique et projection musculaire réaliste — basé sur Mifflin-St Jeor, Harris-Benedict révisé et Katch-McArdle.
+    </p>
+
+    <div class="hero-stats" role="list">
+      <div class="hero-stat-item" role="listitem">
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Modèles BMR</div>
+      </div>
+      <div class="hero-stat-item" role="listitem">
+        <div class="hero-stat-num">10+</div>
+        <div class="hero-stat-label">Variables analysées</div>
+      </div>
+      <div class="hero-stat-item" role="listitem">
+        <div class="hero-stat-num">2 min</div>
+        <div class="hero-stat-label">Temps de calcul</div>
+      </div>
+      <div class="hero-stat-item" role="listitem">
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">Gratuit</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MAIN ── -->
+  <main class="main-container" id="calculator" role="main">
+
+    <!-- Progress Track -->
+    <nav class="progress-track" aria-label="Étapes du calculateur">
+      <div class="progress-steps" role="list">
+        <div class="progress-line" id="progressLine" aria-hidden="true"></div>
+
+        <div class="step-node active" role="listitem" tabindex="0" aria-label="Étape 1 : Profil physique">
+          <div class="step-node-circle" aria-hidden="true">1</div>
+          <div class="step-node-label">Profil</div>
+        </div>
+        <div class="step-node" role="listitem" tabindex="0" aria-label="Étape 2 : Activité">
+          <div class="step-node-circle" aria-hidden="true">2</div>
+          <div class="step-node-label">Activité</div>
+        </div>
+        <div class="step-node" role="listitem" tabindex="0" aria-label="Étape 3 : Nutrition">
+          <div class="step-node-circle" aria-hidden="true">3</div>
+          <div class="step-node-label">Nutrition</div>
+        </div>
+        <div class="step-node" role="listitem" tabindex="0" aria-label="Étape 4 : Résultats">
+          <div class="step-node-circle" aria-hidden="true">4</div>
+          <div class="step-node-label">Résultats</div>
+        </div>
+        <div class="step-node" role="listitem" tabindex="0" aria-label="Étape 5 : Protéines">
+          <div class="step-node-circle" aria-hidden="true">5</div>
+          <div class="step-node-label">Protéines</div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════
+         STEP 1 — Profil physique
+    ═══════════════════════════════════════════════ -->
+    <section class="step-panel active" id="step1" aria-labelledby="step1-title">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title-group">
+            <h2 class="card-title" id="step1-title">Ton profil physique</h2>
+            <p class="card-sub">Calibration des modèles Mifflin-St Jeor, Harris-Benedict révisé et Katch-McArdle.</p>
+          </div>
+          <div class="card-icon" aria-hidden="true">🧬</div>
+        </div>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label class="field-label" for="age">Âge (années)</label>
+            <input type="number" id="age" name="age" min="14" max="75"
+                   placeholder="25" autocomplete="off"
+                   aria-describedby="age-hint" inputmode="numeric">
+            <span id="age-hint" class="card-sub" style="font-size:0.72rem;margin-top:2px;">14 à 75 ans</span>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="sex">Sexe biologique</label>
+            <select id="sex" name="sex">
+              <option value="male">Homme</option>
+              <option value="female">Femme</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="height">Taille (cm)</label>
+            <input type="number" id="height" name="height" min="140" max="220"
+                   placeholder="178" autocomplete="off" inputmode="numeric">
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="weight">Poids actuel (kg)</label>
+            <input type="number" id="weight" name="weight" min="40" max="180"
+                   step="0.5" placeholder="75" autocomplete="off" inputmode="decimal">
+          </div>
+
+          <div class="form-group span-2">
+            <label class="field-label" for="bodyfat">
+              % Masse grasse estimé
+              <span class="tip" title="Estimation visuelle ou mesure. Homme standard : 15-20%. Femme standard : 22-28%.">?</span>
+            </label>
+            <div class="slider-group">
+              <div class="slider-header">
+                <label class="field-label" for="bodyfat" aria-hidden="true">% Graisse corporelle</label>
+                <div class="slider-value" id="bfVal" aria-live="polite">20%</div>
+              </div>
+              <input type="range" id="bodyfat" name="bodyfat" min="5" max="45" value="20" step="1"
+                     aria-valuemin="5" aria-valuemax="45" aria-valuenow="20" aria-label="Pourcentage de masse grasse">
+              <div class="slider-labels" aria-hidden="true">
+                <span>5% — Athlète</span>
+                <span>45% — Obésité</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group span-2">
+            <label class="field-label">Niveau musculaire actuel</label>
+            <div class="pill-group" role="radiogroup" aria-label="Niveau musculaire">
+              <div class="pill">
+                <input type="radio" name="level" id="lv1" value="beginner" checked>
+                <label for="lv1">Débutant <span style="color:var(--clr-text3);font-size:0.75em">(< 1 an)</span></label>
+              </div>
+              <div class="pill">
+                <input type="radio" name="level" id="lv2" value="intermediate">
+                <label for="lv2">Intermédiaire <span style="color:var(--clr-text3);font-size:0.75em">(1–3 ans)</span></label>
+              </div>
+              <div class="pill">
+                <input type="radio" name="level" id="lv3" value="advanced">
+                <label for="lv3">Avancé <span style="color:var(--clr-text3);font-size:0.75em">(3–6 ans)</span></label>
+              </div>
+              <div class="pill">
+                <input type="radio" name="level" id="lv4" value="elite">
+                <label for="lv4">Élite <span style="color:var(--clr-text3);font-size:0.75em">(> 6 ans)</span></label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary btn-lg" id="btnStep1Next" type="button">
+            Activité physique
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         STEP 2 — Activité physique
+    ═══════════════════════════════════════════════ -->
+    <section class="step-panel" id="step2" aria-labelledby="step2-title">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title-group">
+            <h2 class="card-title" id="step2-title">Activité & entraînement</h2>
+            <p class="card-sub">Le TDEE est calculé par coefficient NAP pondéré avec correction thermique EPOC post-exercice.</p>
+          </div>
+          <div class="card-icon" aria-hidden="true">⚡</div>
+        </div>
+
+        <div class="form-grid">
+
+          <div class="form-group span-2">
+            <label class="field-label" for="activity">Niveau d'activité quotidienne</label>
+            <select id="activity" name="activity">
+              <option value="1.2">Sédentaire — Bureau, peu de déplacements</option>
+              <option value="1.375">Légèrement actif — 1 à 2 activités / semaine</option>
+              <option value="1.55" selected>Modérément actif — 3 à 4 entraînements / semaine</option>
+              <option value="1.725">Très actif — 5 à 6 sessions intenses / semaine</option>
+              <option value="1.9">Athlète — 2 séances / jour, travail physique</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="sessionsPerWeek">Séances musculation / semaine</label>
+            <div class="slider-group">
+              <div class="slider-header">
+                <span></span>
+                <div class="slider-value" id="spwVal" aria-live="polite">4 séances</div>
+              </div>
+              <input type="range" id="sessionsPerWeek" name="sessions" min="1" max="7" value="4" step="1"
+                     aria-valuemin="1" aria-valuemax="7" aria-valuenow="4" aria-label="Nombre de séances par semaine">
+              <div class="slider-labels" aria-hidden="true">
+                <span>1×/sem</span>
+                <span>7×/sem</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="sessionDuration">Durée moyenne séance</label>
+            <div class="slider-group">
+              <div class="slider-header">
+                <span></span>
+                <div class="slider-value" id="sdVal" aria-live="polite">60 min</div>
+              </div>
+              <input type="range" id="sessionDuration" name="duration" min="30" max="120" value="60" step="5"
+                     aria-valuemin="30" aria-valuemax="120" aria-valuenow="60" aria-label="Durée de la séance en minutes">
+              <div class="slider-labels" aria-hidden="true">
+                <span>30 min</span>
+                <span>2h</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group span-2">
+            <label class="field-label">Objectif de prise de masse</label>
+            <div class="pill-group" role="radiogroup" aria-label="Objectif">
+              <div class="pill">
+                <input type="radio" name="goal" id="g1" value="lean" checked>
+                <label for="g1">🟢 Lean Bulk — Gains propres, +150 à +250 kcal</label>
+              </div>
+              <div class="pill">
+                <input type="radio" name="goal" id="g2" value="standard">
+                <label for="g2">🔵 Standard — Équilibre, +300 à +400 kcal</label>
+              </div>
+              <div class="pill">
+                <input type="radio" name="goal" id="g3" value="agressive">
+                <label for="g3">🔴 Agressif — Maximum, +500 kcal et plus</label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-secondary" id="btnStep2Back" type="button">← Profil</button>
+          <button class="btn btn-primary btn-lg" id="btnStep2Next" type="button">
+            Nutrition
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         STEP 3 — Nutrition
+    ═══════════════════════════════════════════════ -->
+    <section class="step-panel" id="step3" aria-labelledby="step3-title">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title-group">
+            <h2 class="card-title" id="step3-title">Habitudes nutritionnelles</h2>
+            <p class="card-sub">Pour calculer ton déficit protéique réel et optimiser la supplémentation en whey.</p>
+          </div>
+          <div class="card-icon" aria-hidden="true">🥗</div>
+        </div>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label class="field-label" for="meals">Nombre de repas / jour</label>
+            <select id="meals" name="meals">
+              <option value="2">2 repas</option>
+              <option value="3" selected>3 repas</option>
+              <option value="4">4 repas</option>
+              <option value="5">5 repas</option>
+              <option value="6">6 repas et plus</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="dietaryProtein">
+              Protéines alimentaires estimées
+              <span class="tip" title="Total quotidien via viandes, œufs, produits laitiers, légumineuses — sans compter les suppléments.">?</span>
+            </label>
+            <input type="number" id="dietaryProtein" name="dietaryProtein" min="0" max="400"
+                   placeholder="80" value="80" inputmode="numeric">
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="wheyPerScoop">Protéines par scoop de whey (g)</label>
+            <input type="number" id="wheyPerScoop" name="wheyPerScoop" min="10" max="50"
+                   placeholder="25" value="25" inputmode="numeric">
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="trainingTime">Moment de l'entraînement</label>
+            <select id="trainingTime" name="trainingTime">
+              <option value="morning">Matin (avant 12h)</option>
+              <option value="afternoon" selected>Après-midi (12h – 18h)</option>
+              <option value="evening">Soir (après 18h)</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-secondary" id="btnStep3Back" type="button">← Activité</button>
+          <button class="btn btn-primary btn-lg" id="btnCalculate" type="button">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 1L10 5.5L15 6.3L11.5 9.7L12.4 14L8 11.8L3.6 14L4.5 9.7L1 6.3L6 5.5L8 1Z" fill="currentColor"/>
+            </svg>
+            Calculer mon plan
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         STEP 4 — Résultats principaux
+    ═══════════════════════════════════════════════ -->
+    <section class="step-panel" id="step4" aria-labelledby="step4-title">
+
+      <!-- Métriques BMR / TDEE -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title-group">
+            <h2 class="card-title" id="step4-title">Métabolisme & besoins</h2>
+            <p class="card-sub">Résultats basés sur une moyenne pondérée de 3 modèles scientifiques (Mifflin 40% · Harris-Benedict 30% · Katch-McArdle 30%).</p>
+          </div>
+          <div class="card-icon" aria-hidden="true">📊</div>
+        </div>
+
+        <div class="metrics-grid" id="metaResults" aria-live="polite">
+          <!-- Injecté par renderer.js -->
+        </div>
+
+        <div id="macroBlock">
+          <!-- Injecté par renderer.js -->
+        </div>
+      </div>
+
+      <!-- Stratégies -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title-group">
+            <h2 class="card-title">Choisir une stratégie</h2>
+            <p class="card-sub">La stratégie recommandée pour ton profil est présélectionnée. Clique pour modifier.</p>
+          </div>
+          <div class="card-icon" aria-hidden="true">🎯</div>
+        </div>
+
+        <div class="strategy-grid" id="strategyCards" role="group" aria-label="Stratégies de prise de masse">
+          <!-- Injecté par renderer.js -->
+        </div>
+      </div>
+
+      <!-- Projection -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title-group">
+            <h2 class="card-title">Projection musculaire</h2>
+            <p class="card-sub">Modèle Lyle McDonald adapté, ajusté par niveau, sexe, surplus et volume d'entraînement.</p>
+          </div>
+          <div class="card-icon" aria-hidden="true">📈</div>
+        </div>
+
+        <div class="proj-grid" id="projectionData" aria-live="polite">
+          <!-- Injecté par renderer.js -->
+        </div>
+
+        <div id="resultAdviceBlock">
+          <!-- Injecté par renderer.js -->
+        </div>
+      </div>
+
+      <!-- Ad slot discret -->
+      <div class="ad-slot" role="complementary" aria-label="Publicité">
+        <div class="ad-label">Publicité</div>
+        <div class="ad-placeholder" id="adSlot1">
+          <!-- Ici : ins.adsbygoogle ou bloc display réseau -->
+          Espace publicitaire — Google AdSense 728×90
+        </div>
+      </div>
+
+      <!-- Affiliation -->
+      <div class="aff-banner" role="complementary">
+        <div class="aff-text">
+          <strong>🥤 Whey Protéine Recommandée</strong>
+          <span>Basé sur ton profil, une whey isolate à haute densité protéique (≥80%) est idéale. Notre partenaire propose les meilleures formulations testées en laboratoire.</span>
+        </div>
+        <a href="#" class="btn-aff" rel="noopener sponsored" aria-label="Voir l'offre partenaire">
+          Voir l'offre →
+        </a>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-secondary" id="btnStep4Back" type="button">← Modifier</button>
+        <button class="btn btn-primary btn-lg" id="btnStep4Next" type="button">
+          Détail protéines
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         STEP 5 — Protéines & Whey
+    ═══════════════════════════════════════════════ -->
+    <section class="step-panel" id="step5" aria-labelledby="step5-title">
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title-group">
+            <h2 class="card-title" id="step5-title">Plan protéique complet</h2>
+            <p class="card-sub">Besoin calculé entre 1.6 et 2.2g/kg selon niveau, objectif et composition corporelle. Méthode : Morton et al. (2018).</p>
+          </div>
+          <div class="card-icon" aria-hidden="true">🧪</div>
+        </div>
+
+        <div class="metrics-grid" id="proteinResults" aria-live="polite">
+          <!-- Injecté par renderer.js -->
+        </div>
+
+        <!-- Barre couverture alimentaire -->
+        <div class="protein-stack">
+          <div class="pbar-header">
+            <span>Couverture par alimentation seule</span>
+            <span class="pbar-pct" id="dietCoverPct" aria-live="polite">—</span>
+          </div>
+          <div class="pbar-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Couverture protéique alimentaire">
+            <div class="pbar-fill" id="proteinFill"></div>
+          </div>
+        </div>
+
+        <hr class="card-divider">
+
+        <h3 class="card-title" style="font-size:1.05rem;margin-bottom:4px;">Répartition & timing whey</h3>
+        <p class="card-sub" style="margin-bottom:var(--gap-lg);">Basé sur le principe de distribution protéique optimale (Paddon-Jones et al. 2009, 2013).</p>
+
+        <div style="overflow-x:auto;">
+          <table class="timing-table" aria-label="Répartition et timing de la whey">
+            <thead>
+              <tr>
+                <th scope="col">Moment</th>
+                <th scope="col">Quantité</th>
+                <th scope="col">Conseil</th>
+              </tr>
+            </thead>
+            <tbody id="timingBody" aria-live="polite">
+              <!-- Injecté par renderer.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Conseils personnalisés -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title-group">
+            <h2 class="card-title">Conseils personnalisés</h2>
+            <p class="card-sub">Générés automatiquement selon ton profil, niveau et objectif.</p>
+          </div>
+          <div class="card-icon" aria-hidden="true">💡</div>
+        </div>
+        <div class="advice-list" id="adviceList" aria-live="polite">
+          <!-- Injecté par renderer.js -->
+        </div>
+      </div>
+
+      <!-- Second ad slot -->
+      <div class="ad-slot" role="complementary" aria-label="Publicité">
+        <div class="ad-label">Publicité</div>
+        <div class="ad-placeholder" id="adSlot2" style="height:250px;">
+          <!-- Ici : ins.adsbygoogle bloc 300×250 -->
+          Espace publicitaire — AdSense responsive 300×250
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-secondary" id="btnStep5Back" type="button">← Résultats</button>
+        <button class="btn btn-primary" id="btnPrint" type="button">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="3" y="5" width="10" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M5 5V3h6v2M5 12h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Imprimer mon plan
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-brand">
+      <a href="/" class="logo" aria-label="MassBuilder PRO">
+        <span class="logo-word">Mass</span><span class="logo-accent">Builder</span><span class="logo-word">PRO</span>
+      </a>
+      <p class="footer-desc">
+        Calculateur scientifique de prise de masse musculaire. Les résultats sont des estimations basées sur des modèles métaboliques reconnus. Consultez un professionnel de santé avant tout changement nutritionnel significatif.
+      </p>
+    </div>
+    <nav class="footer-legal" aria-label="Liens légaux">
+      <a href="/mentions-legales">Mentions légales</a><br>
+      <a href="/confidentialite">Confidentialité</a><br>
+      <a href="/contact">Contact</a><br>
+      <span>© 2025 MassBuilder PRO</span>
+    </nav>
+  </footer>
+
+</div><!-- /site-wrapper -->
+
+<!-- ═══ SCRIPTS (ordre de dépendance strict) ══════════════════
+     1. algorithms.js — moteur de calcul pur (pas de DOM)
+     2. renderer.js   — injecte dans le DOM (dépend d'ALGO)
+     3. app.js        — orchestre tout (dépend des 2 précédents)
+═══════════════════════════════════════════════════════════════ -->
+<script src="js/algorithms.js" defer></script>
+<script src="js/renderer.js" defer></script>
+<script src="js/app.js" defer></script>
+
+</body>
+</html>
